@@ -1,8 +1,10 @@
 /*
  * Custom logo for zmk-nice-oled (fork: eliashonegger/zmk-nice-oled)
- * Regenerated with VALID C identifiers and all four required symbols so the
- * module links.  All four descriptors point at the same custom bitmap
- * (68x68, 1-bit indexed).  Replace per-size later for a pixel-perfect fit.
+ * Valid C identifiers + ALL symbols the nice_oled widgets reference:
+ *   vim_32x100, vim_32x128, vim_68x69, vim_68x160  (size variants)
+ *   vim                                            (static-image peripheral)
+ * All point at one custom 68x68 1-bit bitmap. Replace per-size later for a
+ * pixel-perfect fit.
  */
 #ifdef __has_include
     #if __has_include("lvgl.h")
@@ -111,7 +113,8 @@ const lv_img_dsc_t name = { \
   .data = vim_custom_map, \
 }
 
-/* All four symbols the nice_oled widgets reference must be defined. */
+/* Every symbol the nice_oled widgets reference must be defined. */
+VIM_CUSTOM_DSC(vim);         /* static-image peripheral (FIXED_IMAGE_VIM) */
 VIM_CUSTOM_DSC(vim_32x100);
 VIM_CUSTOM_DSC(vim_32x128);
 VIM_CUSTOM_DSC(vim_68x69);
