@@ -1,3 +1,9 @@
+/*
+ * Custom logo for zmk-nice-oled (fork: eliashonegger/zmk-nice-oled)
+ * Regenerated with VALID C identifiers and all four required symbols so the
+ * module links.  All four descriptors point at the same custom bitmap
+ * (68x68, 1-bit indexed).  Replace per-size later for a pixel-perfect fit.
+ */
 #ifdef __has_include
     #if __has_include("lvgl.h")
         #ifndef LV_LVGL_H_INCLUDE_SIMPLE
@@ -12,16 +18,15 @@
     #include "lvgl/lvgl.h"
 #endif
 
-
 #ifndef LV_ATTRIBUTE_MEM_ALIGN
 #define LV_ATTRIBUTE_MEM_ALIGN
 #endif
 
-#ifndef LV_ATTRIBUTE_IMG_UNNAMED (CUSTOM)
-#define LV_ATTRIBUTE_IMG_UNNAMED (CUSTOM)
+#ifndef LV_ATTRIBUTE_IMG_VIM_CUSTOM
+#define LV_ATTRIBUTE_IMG_VIM_CUSTOM
 #endif
 
-const LV_ATTRIBUTE_MEM_ALIGN LV_ATTRIBUTE_LARGE_CONST LV_ATTRIBUTE_IMG_UNNAMED (CUSTOM) uint8_t unnamed (Custom)_map[] = {
+static const LV_ATTRIBUTE_MEM_ALIGN LV_ATTRIBUTE_LARGE_CONST LV_ATTRIBUTE_IMG_VIM_CUSTOM uint8_t vim_custom_map[] = {
   0xd9, 0xda, 0xda, 0xff, 	/*Color of index 0*/
   0x1f, 0x21, 0x21, 0xff, 	/*Color of index 1*/
 
@@ -95,12 +100,19 @@ const LV_ATTRIBUTE_MEM_ALIGN LV_ATTRIBUTE_LARGE_CONST LV_ATTRIBUTE_IMG_UNNAMED (
   0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xf0, 
 };
 
-const lv_img_dsc_t unnamed (Custom) = {
-  .header.cf = LV_IMG_CF_INDEXED_1BIT,
-  .header.always_zero = 0,
-  .header.reserved = 0,
-  .header.w = 68,
-  .header.h = 68,
-  .data_size = 620,
-  .data = unnamed (Custom)_map,
-};
+#define VIM_CUSTOM_DSC(name) \
+const lv_img_dsc_t name = { \
+  .header.cf = LV_IMG_CF_INDEXED_1BIT, \
+  .header.always_zero = 0, \
+  .header.reserved = 0, \
+  .header.w = 68, \
+  .header.h = 68, \
+  .data_size = 620, \
+  .data = vim_custom_map, \
+}
+
+/* All four symbols the nice_oled widgets reference must be defined. */
+VIM_CUSTOM_DSC(vim_32x100);
+VIM_CUSTOM_DSC(vim_32x128);
+VIM_CUSTOM_DSC(vim_68x69);
+VIM_CUSTOM_DSC(vim_68x160);
